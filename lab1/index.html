@@ -1,24 +1,31 @@
-<html>
-
-<head>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
+<link
+href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+rel="stylesheet" integrity="sha384-EVSTQN3/azprGIAnm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuComLASjc"
+crossorigin="anonymous">
 <body>
-  <div id="container" tabindex="0" class="blockquote text-nowrap">
-  </div>
+    <div id="container" tabindex="0" class="blockquote text-nowrap">
+    </div>
 </body>
-  var container = document.getElementById("container");
-  window.addEventListener("keyup", function (e) {
-  console.log(e.key);
-  if (e.key == "Escape") {
-    container.textContent = "";
-  } else if (e.key == "Backspace") {
-    var str = container.textContent;
-    container.textContent = str.substring(0, str.length - 1);
-  } else {
-    container.textContent += e.key;
-  }
-});
-</head>
-  
-</html>
+<script>
+    window.onload = function() { document.getElementById('container').innerHTML='yao';
+    }
+    var container = document.getElementById('container');
+    window.addEventListener("keyup", function(e) {
+    console.log(e.key);
+    if (e.key == container.textContent[0]) {
+        var str = container.textContent;
+        container.textContent = str.substring(1, str.length);
+    }
+    add_new_chars();
+    });
+    
+    function add_new_chars() {
+    var i;
+    var count = Math.floor(Math.random()*3) + 1;
+    var letterSheet = ['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m'];
+    
+    for(i = 1; i <= count; i++) {
+        container.textContent += letterSheet[Math.floor(Math.random()*26)];
+    }
+    }
+</script>
